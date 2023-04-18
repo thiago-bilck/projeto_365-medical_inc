@@ -22,6 +22,7 @@ const updateDoctorData = require('./src/controllers/doctor/updateDoctorData');
 const validateUpdateDoctorData = require('./src/middlewares/doctor/validateUpdateDoctorData');
 const updateDoctorStatus = require('./src/controllers/doctor/updateDoctorStatus');
 const findAllDoctors = require('./src/controllers/doctor/findAllDoctors');
+const findDoctorById = require('./src/controllers/doctor/findDoctorById');
 
 const app = express();
 
@@ -42,6 +43,7 @@ app.post('/api/doctor', validateNewDoctor, createDoctor);
 app.put('/api/doctor/:id', validateUpdateDoctorData, updateDoctorData);
 app.put('/api/doctor/:id/status', updateDoctorStatus);
 app.get('/api/doctor', findAllDoctors);
+app.get('/api/doctor/:id', findDoctorById)
 
 
 app.listen(PORT, () => console.log("Servidor Online na porta "+PORT))
