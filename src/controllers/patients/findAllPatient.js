@@ -11,7 +11,7 @@ try {
     if(filter.status){
 
     if(!["AGUARDANDO_ATENDIMENTO", "EM_ATENDIMENTO", "ATENDIDO","NÃO_ATENDIDO"].includes(filter.status)){
-        return res.json({message: 'Informe um dos seguintes status válidos: "AGUARDANDO_ATENDIMENTO", "EM_ATENDIMENTO", "ATENDIDO","NÃO_ATENDIDO"'})
+        return res.status(400).json({message: 'Informe um dos seguintes status válidos: "AGUARDANDO_ATENDIMENTO", "EM_ATENDIMENTO", "ATENDIDO","NÃO_ATENDIDO"'})
     }
 
     const patient = await Pacient.findAll({
