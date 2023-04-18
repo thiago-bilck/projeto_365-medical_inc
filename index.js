@@ -9,7 +9,7 @@ const Patient = require('./src/models/patient');
 const createPatient = require('./src/controllers/patients/createPatient');
 const validateNewPatient = require('./src/middlewares/patient/validateNewPatient');
 const updatePatientData = require('./src/controllers/patients/updatePatientData');
-const validateUpdatePatient = require('./src/middlewares/patient/validateUpdatePatient');
+const validateUpdatePatient = require('./src/middlewares/patient/validateUpdatePatientData');
 const updateStatus = require('./src/controllers/patients/updateStatus');
 const findAllPatient = require('./src/controllers/patients/findAllPatient');
 const findPatientById = require('./src/controllers/patients/findPatientById');
@@ -17,7 +17,9 @@ const deletePatient = require('./src/controllers/patients/deletePatient');
 
 const Doctor = require('./src/models/doctor');
 const createDoctor = require('./src/controllers/doctor/createDoctor');
-const validateNewDoctor = require('./src/middlewares/doctor/validateNewDoctor')
+const validateNewDoctor = require('./src/middlewares/doctor/validateNewDoctor');
+const updateDoctorData = require('./src/controllers/doctor/updateDoctorData');
+const validateUpdateDoctorData = require('./src/middlewares/doctor/validateUpdateDoctorData');
 
 const app = express();
 
@@ -35,6 +37,7 @@ app.get('/api/patient/:id', findPatientById);
 app.delete('/api/patient/:id', deletePatient);
 
 app.post('/api/doctor', validateNewDoctor, createDoctor);
+app.put('/api/doctor/:id', validateUpdateDoctorData, updateDoctorData);
 
 
 app.listen(PORT, () => console.log("Servidor Online na porta "+PORT))
