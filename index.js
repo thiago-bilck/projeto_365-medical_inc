@@ -24,6 +24,14 @@ const updateDoctorStatus = require('./src/controllers/doctor/updateDoctorStatus'
 const findAllDoctors = require('./src/controllers/doctor/findAllDoctors');
 const findDoctorById = require('./src/controllers/doctor/findDoctorById');
 const deleteDoctor = require('./src/controllers/doctor/deleteDoctor');
+const createService = require('./src/controllers/services/createService');
+
+const Nurse = require('./src/models/nurse');
+const createNurse = require('./src/controllers/nurse/createNurse');
+const validateNewNurse = require('./src/middlewares/nurse/validateNewNurse');
+
+
+//importar o model Service depois
 
 const app = express();
 
@@ -46,6 +54,10 @@ app.put('/api/doctor/:id/status', updateDoctorStatus);
 app.get('/api/doctor', findAllDoctors);
 app.get('/api/doctor/:id', findDoctorById);
 app.delete('/api/doctor/:id', deleteDoctor);
+
+app.post('/api/nurse', validateNewNurse, createNurse)
+
+app.post('api/service', createService)
 
 
 app.listen(PORT, () => console.log("Servidor Online na porta "+PORT))
