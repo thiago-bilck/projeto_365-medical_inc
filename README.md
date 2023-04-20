@@ -30,7 +30,21 @@ Para o desenvolvimento da API utilizou-se a linguagem JavaScript e o framwork No
 
 Para melhor organização deste projeto, ele foi dividido em pastas permitindo assim, uma maior clareza quanto as diferentes funções criadas para a execução da API.
 
-Há uma pasta raiz contendo os arquivos   FAZER O MAPA COM A ESTRUTURA DAS PASTAS
+Pasta raiz contendo os arquivos: 
+- index.js: contendo as rotas para acessar as funcionalidades, variável de acesso e importações necessárias para o correto funcionamento.
+- .gitignore: arquivo que impede o commit de outros arquivos ou pastas não necessários ou pesados demais, como a pasta node_modules, devendo estes arquivos serem instalados pelo próprio usuário.
+- .env: arquivo que contém as variáveis de ambiente e que devem ser sigilosas
+- .env.example: arquivo que contém os exemplos de variáveis de ambiente utilizadas que devem ser reatribuídas pelos usuários - package.json: arquivo que contém dados do projeto como nome, versão, scripts e dependências.
+- package-lock.json: arquivo que registra as versões das depências utilizadas impedindo que alguma outra versão seja utilizada caso um usuário faça uso do código.
+- node_modules: pasta criada pelo Express contendo bibliotecas para o correto funcionamento da aplicação
+- src: pasta contendo outras pastas e arquivos de acordo com a função de cada código.
+
+Pasta src:
+
+
+
+
+   FAZER O MAPA COM A ESTRUTURA DAS PASTAS
 
 
 INSERIR UMA MODELAGEM DO BANCO DE DADOS COM AS RELAÇÕES ENTRE AS ENTIDADES 
