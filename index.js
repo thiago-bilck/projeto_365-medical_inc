@@ -29,6 +29,11 @@ const createService = require('./src/controllers/services/createService');
 const Nurse = require('./src/models/nurse');
 const createNurse = require('./src/controllers/nurse/createNurse');
 const validateNewNurse = require('./src/middlewares/nurse/validateNewNurse');
+const updateNurseData = require('./src/controllers/nurse/updateNurseData');
+const validateUpdateNurseData = require('./src/middlewares/nurse/validateUpdateNurseData.js');
+const findAllNurses = require('./src/controllers/nurse/findAllNurse');
+const findNurseById = require('./src/controllers/nurse/findNurseById');
+const deleteNurse = require('./src/controllers/nurse/deleteNurse');
 
 
 //importar o model Service depois
@@ -55,7 +60,11 @@ app.get('/api/doctor', findAllDoctors);
 app.get('/api/doctor/:id', findDoctorById);
 app.delete('/api/doctor/:id', deleteDoctor);
 
-app.post('/api/nurse', validateNewNurse, createNurse)
+app.post('/api/nurse', validateNewNurse, createNurse);
+app.put('/api/nurse/:id', validateUpdateNurseData, updateNurseData);
+app.get('/api/nurse', findAllNurses);
+app.get('/api/nurse/:id', findNurseById);
+app.delete('/api/nurse/:id', deleteNurse)
 
 app.post('api/service', createService)
 

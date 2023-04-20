@@ -29,27 +29,21 @@ async function validateNewNurse(req,res,next){
 try {
     
 validation.validateSync(req.body)
+const nurseInDatabase = await Nurse.findOne({
+    where: {cpf: req.body.cpf}
+})
+
+if(nurseInDatabase){
+    return res.status(409).json({message: "Este CPF já está cadastrado no sistema"})
+}
+
+next();
 
 } catch (error) {
     res.status(400).json({message: error.message})
     
 }
 
-try {
-    
-    const nurseInDatabase = await Nurse.findOne({
-        where: {cpf: req.body.cpf}
-    })
-
-    if(nurseInDatabase){
-        return res.status(409).json({message: "Este CPF já está cadastrado no sistema"})
-    }
-
-    next();
-
-} catch (error) {
-    res.status(400).json({message: error.message})
-}
 }
 
 module.exports = validateNewNurse;

@@ -4,7 +4,7 @@ const Patient = require('../../models/patient')
 const validation = yup.object().shape({
     fullName: yup.string("A informação deve ser um texto"),
     gender: yup.string().oneOf(["MASCULINO", "FEMININO", "OUTRO", "PREFIRO_NÃO_INFORMAR"]),//maneira de validar enum. Fica como aprendizado
-    birthDate: yup.date(),
+    birthDate: yup.date("Informe uma data válida no formato aaaa-mm-dd."),
     cpf: yup.string(),
     contact: yup.string("A informação deve ser um texto"),
     emergencyContact: yup.string("A informação deve ser um texto"),

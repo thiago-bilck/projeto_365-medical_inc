@@ -28,33 +28,23 @@ async function validateNewPatient(req,res,next){
     try {
         
         validation.validateSync(req.body)
-        //next()
-    } catch (error) {
-        res
-        .status(400)
-        .json({message: error.message})
-    }
-
-
-    try {
         const userInDatabase = await Patient.findOne({
             where: {
                 cpf: req.body.cpf}
             })
-
+    
         if (userInDatabase){
             return res
             .status(409)
             .json({message: "Este CPF já está cadastrado no sistema"})
         }
-
-
-        next();
+        next()
     } catch (error) {
         res
         .status(400)
         .json({message: error.message})
     }
+
 }
 
 module.exports = validateNewPatient;
