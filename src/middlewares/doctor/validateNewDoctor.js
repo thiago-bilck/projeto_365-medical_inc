@@ -25,7 +25,7 @@ const validation = yup.object().shape({
     .oneOf(['CLINICO_GERAL', 'ANESTESISTA', 'DERMATOLOGIA', 'GINECOLOGIA', 'NEUROLOGIA', 'PEDIATRIA', 'PSIQUIATRIA', 'ORTOPEDIA'])
     .required("Informe qual a especialização: 'CLINICO_GERAL', 'ANESTESISTA', 'DERMATOLOGIA', 'GINECOLOGIA', 'NEUROLOGIA', 'PEDIATRIA', 'PSIQUIATRIA', 'ORTOPEDIA'"),
     status: yup.string().oneOf(["ATIVO", "INATIVO"]).default("ATIVO"),
-    servicesCount: yup.number().integer().default(0)
+    servicesCount: yup.number().integer().default(0).nullable(true)
 })
 
 async function validateNewDoctor(req, res, next){

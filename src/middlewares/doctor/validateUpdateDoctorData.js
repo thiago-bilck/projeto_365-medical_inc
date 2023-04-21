@@ -16,8 +16,7 @@ const validation = yup.object().shape({
     .string("A informação deve ser um texto"),
     specialization: yup
     .string("A informação deve ser um texto")
-    .oneOf(['CLINICO_GERAL', 'ANESTESISTA', 'DERMATOLOGIA', 'GINECOLOGIA', 'NEUROLOGIA', 'PEDIATRIA', 'PSIQUIATRIA', 'ORTOPEDIA']),
-    insurance: yup.string("A informação deve ser um texto")
+    .oneOf(['CLINICO_GERAL', 'ANESTESISTA', 'DERMATOLOGIA', 'GINECOLOGIA', 'NEUROLOGIA', 'PEDIATRIA', 'PSIQUIATRIA', 'ORTOPEDIA'])
 })
 
 

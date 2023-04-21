@@ -66,7 +66,7 @@ app.get('/api/nurse', findAllNurses);
 app.get('/api/nurse/:id', findNurseById);
 app.delete('/api/nurse/:id', deleteNurse)
 
-app.post('api/service', createService)
+app.post('/api/service', createService)
 
 
 app.listen(PORT, () => console.log("Servidor Online na porta "+PORT))

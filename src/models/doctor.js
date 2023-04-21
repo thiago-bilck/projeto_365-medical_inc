@@ -41,7 +41,8 @@ const Doctor = connection.define('doctor', {
         defaultValue: "ATIVO" 
     },
     servicesCount:{
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
         //FALTA COMPLEMENTAR COM OS OUTROS REQUISITOS LISTADOS EM S07
     }
 })

@@ -21,11 +21,24 @@ async function createService(req,res){
         if(!patienInDatabase){
             return res.status(404).json({message: "ID do paciente não existe"})
         }
+        
+        
+        const doctorInDatabase = await Doctor.findByPk(data.doctorId)
+        
+        if(!doctorInDatabase){
+            return res.status(404).json({message: "ID do médico não existe"})
+        }
+        
+        await doctorInDatabase.increment('servicesCount')
+        console.log(`servicesCount do médico ${doctorInDatabase.name} atualizado para ${doctorInDatabase.servicesCount}`)
 
-        //continuar os mesmos passos das linhas acima para o médico
+        await patienInDatabase.increment('servicesCount')
+        console.log(`servicesCount do paciente ${patienInDatabase.name} atualizado para ${patienInDatabase.servicesCount}`)
 
 
         const service = await Service.create(data)
+
+
 
         res.json(service);
 
