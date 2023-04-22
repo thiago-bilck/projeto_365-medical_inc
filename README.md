@@ -40,7 +40,59 @@ Pasta raiz contendo os arquivos:
 - src: pasta contendo outras pastas e arquivos de acordo com a função de cada código.
 
 Pasta src:
+- a pasta source('src') contém outras 4 pastas: models, controllers, middlewares e database. A seguir explica-se o que cada uma destas contém.
 
+Pasta models:
+- Nesta pasta se encontra os arquivos .js contendo os modelos de entidades que serão criadas nos bancos de dados, com definições de seus atributos e demais propriedades necessárias para atender os requisitos do projeto. A seguir uma breve apresentação destes modelos:
+    - patient.js: arquivo contendo os atrbutos necessários para criação de um paciente.
+    - doctor.js: arquivo contendo os atrbutos necessários para criação de um paciente.
+    - nurse.js: arquivo contendo os atrbutos necessários para criação de um enfermeiro.
+    - service.js: arquivo contendo os atrbutos necessários para criação de uma função que fará o incremento no número de atendimetntos de determinado médico e paciente de acordo com o id passado na requisição e altera o status do paciente para "ATENDIDO".
+
+Pasta controllers:
+- Nesta pasta estão os arquivos que responśaveis por criar, listar, atualizar e deletar dados de pacientes, médicos e enfermeiros cadastrados além da pasta service. Assim para cada uma das pastas, temos os seguintes arquivos:
+    - Pasta patients:
+        - createPatient: cria cadastro de novo paciente.
+        - updatePatientData: atualiza dados de pacientes.
+        - updateStatus: atualiza o status de paciente de acordo com as seguintes opções: "AGUARDANDO_ATENDIMENTO",  "EM_ATENDIMENTO", "ATENDIDO", "NÃO_ATENDIDO"
+        - findAllPatient: lista os pacientes de acordo com seu status via query params ou lista todos os pacientes.
+        - findPatientById: lista um paciente de acordo com o ID repassado no params.
+        - deletePatient: deleta um paciente do banco de dados.
+        - 
+    - Pasta doctor:
+        - createDoctor: cria cadastro de novo médico.
+        - updateDoctortData: atualiza dados de médicos.
+        - updateDoctorStatus: atualiza o status de médico de acordo com as seguintes opções: "ATIVO",  "INATIVO".
+        - findAllDoctors: lista os médicos de acordo com seu status via query params ou lista todos os médicos.
+        - findDoctorById: lista um médico de acordo com o ID repassado no params.
+        - deleteDoctor: deleta um médico do banco de dados.
+        - 
+    - Pasta nurse:
+        - createNurse: cria cadastro de novo enfermeiro.
+        - updateNursetData: atualiza dados de enfermeiros.
+        - findAllNurse: lista os enfermeiros.
+        - findNurseById: lista um enfermeiro de acordo com o ID repassado no params.
+        - deleteNurse: deleta um enfermeiro do banco de dados.
+    
+    - Pasta service:
+        - createService: busca um paciente e um médico passados via request body e incrementa o atributos atendimento em cada um dos objetos além de mudar o status de paciente para ATIVO.
+
+Pasta middlewares:
+-  Nesta pasta se encontra os arquivos .js contendo os validadores de dados repassados nas requisições e vendo se estão de acordo com as regras implementadas. Foi utilizada a biblioteca Yup. para realizar as validações. Está organizada em mais 3 pastas: paciente, médico e enfermeiro:
+    - Pasta patient: 
+        - validateNewPatient: valida a criação de um novo paciente.
+        - validateUpdatePatientData: valida as atualizações realizadas nos pacientes cadastrados.
+    
+    - Pasta doctor:
+        - validateNewDoctor: valida a criação de um novo médico.
+        - validateUpdateDoctorData: valida as atualizações realizadas nos médicos cadastrados.
+    
+    - Pasta nurse: 
+        - validateNewNurse: valida a criação de um novo enfermeiro.
+        - validateUpdateNurseData: valida as atualizações realizadas nos enfermeiros cadastrados.
+
+Pasta database:
+    - Esta pasta contém apenas um arquivo index.js responsável por criar através de funções do sequelize a conexão com o banco de dados. Note que variáveis de ambiente foram utilizadas, sendo que você poderá usar o arquivo env.example na pasta root para criar suas variáveis. 
 
 
 
