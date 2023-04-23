@@ -49,6 +49,10 @@ Pasta models:
     - nurse.js: arquivo contendo os atrbutos necessários para criação de um enfermeiro.
     - service.js: arquivo contendo os atrbutos necessários para criação de uma função que fará o incremento no número de atendimetntos de determinado médico e paciente de acordo com o id passado na requisição e altera o status do paciente para "ATENDIDO".
 
+
+<image src = "https://drive.google.com/file/d/1boX8mW8E9iNhsIHZ3etmWnB_hOVpkpm-/view?usp=sharing">
+
+
 Pasta controllers:
 - Nesta pasta estão os arquivos que responśaveis por criar, listar, atualizar e deletar dados de pacientes, médicos e enfermeiros cadastrados além da pasta service. Assim para cada uma das pastas, temos os seguintes arquivos:
     - Pasta patients:
@@ -96,7 +100,48 @@ Pasta database:
 
 
 
-   FAZER O MAPA COM A ESTRUTURA DAS PASTAS
+## Instalação
+
+Para rodar o projeto certifique-se de ter o Node.js instalado em seu computador e de ter o pgAdmin4 para ter acesso ao PostGres SQL.
+
+Após a instalação ou se já tiver os programas instalados, clone o repositório do GitHub e abra o terminal. Para iniciar seu projeto chame o gerenciador de pacotes do node com o comando abaixo. Certifique-se se o terminal está aberto na pasta correta do projeto:
 
 
-INSERIR UMA MODELAGEM DO BANCO DE DADOS COM AS RELAÇÕES ENTRE AS ENTIDADES 
+```sh
+npm init
+```
+
+Algumas perguntas serão feitas, como o nome do projeto, autor, versão. Se quiser você pode ignorar estas perguntas e ir direto para a criação da pasta com o comando a seguir:
+
+```sh
+npm init -y
+```
+
+Após o start no projeto, vamos seguir para as instalações das bibliotecas necessárias para rodar o sistema, conforme apresentado mais acima.
+
+Instale o Express com o seguinte comando:
+```sh
+npm install express
+```
+Ou se preferir ter o Express instalado na lista de dependências, ou seja, de forma permanente, use o seguinte comando:
+```sh
+npm install express --save
+```
+
+Próximo passo é a instalação do Sequelize, que conforme visto, irá ser o responsável pela comunicação com o banco de dados:
+```sh
+npm install --save pg pg-hstore
+```
+
+Por último, será instalado a biblioteca Yup, para executar as validações necessárias na criação de novos cadastros no SGBD:
+```
+npm install yup
+```
+
+## Melhorias ou futuras implementações
+
+Pelo fato de este projeto ser apenas um MVP, abaixo seguem algumas melhorias para futuras implementações:
+
+- implementar um histórico do paciente, que poderá ser compartilhado com o mesmo após cada consulta ou quando desejado pelo cliente além de permitir aos médicos e enfermeiros terem um histórico em mãos para melhor atender o paciente.
+- implementar uma opção para o cliente classificar como foi o atendimento recebido, afim de obter dados para melhoria contínua do processo de atendimento.
+- oferecer duas opções para a realização da consulta, dependendo do problema do paciente. Presencial ou on-line evitando assim filas em salas de espera ou perda de tempo com deslocamentos.
