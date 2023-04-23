@@ -50,7 +50,7 @@ Pasta models:
     - service.js: arquivo contendo os atrbutos necessários para criação de uma função que fará o incremento no número de atendimetntos de determinado médico e paciente de acordo com o id passado na requisição e altera o status do paciente para "ATENDIDO".
 
 
-<image src = "https://drive.google.com/file/d/1boX8mW8E9iNhsIHZ3etmWnB_hOVpkpm-/view?usp=sharing">
+Abaixo você pode ver um modelo entidade relacionamento do projeto:
 
 ![modelo entidade-relacionamento](./Diagrama%20em%20branco.jpeg)
 
