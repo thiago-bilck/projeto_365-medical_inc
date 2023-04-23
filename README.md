@@ -52,6 +52,9 @@ Pasta models:
 
 <image src = "https://drive.google.com/file/d/1boX8mW8E9iNhsIHZ3etmWnB_hOVpkpm-/view?usp=sharing">
 
+![modelo entidade-relacionamento](./Diagrama%20em%20branco.jpeg)
+
+
 
 Pasta controllers:
 - Nesta pasta estão os arquivos que responśaveis por criar, listar, atualizar e deletar dados de pacientes, médicos e enfermeiros cadastrados além da pasta service. Assim para cada uma das pastas, temos os seguintes arquivos:
