@@ -141,6 +141,157 @@ Por último, será instalado a biblioteca Yup, para executar as validações nec
 npm install yup
 ```
 
+
+## Endpoints / Rotas
+Os itens a seguir demonstram as rotas utilziadas no projeto bem como as respostas obtidas de acordo com as requisições:
+
+**PACIENTE**
+
+**POST/api/patient**
+Cria um novo paciente.
+
+Parâmetros:
+- Identificador: Um número que deve ser incrementado automaticamente
+- Nome Completo: Deve ser um texto
+- Gênero: Deve ser um texto
+- Data de Nascimento: Obrigatório, data válida.
+- CPF: Deve ser texto
+- Telefone: Deve ser texto
+- Contato de Emergência: Obrigatório, Deve ser texto
+- Lista de Alergias: Não obrigatório para a criação da classe
+- Lista de Cuidados Específicos: Não obrigatório para a criação da classe
+- Convênio: Não obrigatório para a criação da classe
+- Status de Atendimento: Um paciente pode estar com as seguintes situações: Aguardando Atendimento, Em Atendimento, Atendido, Não Atendido
+- Total de atendimentos realizados.
+
+**PUT/api/patient/:id**
+Realiza atualizações nos atributos de pacientes.
+
+Parâmetros: 
+- No corpo da request, informar objeto json com os campos , exceto o status do atendimento e total_de_atendimentos .
+- Os campos validados como sendo obrigatórios devem possuir os valores possíveis para estes campos.
+
+**PUT/api/patient/:id/status**
+Atualiza o status do paciente no banco de dados.
+
+Parâmetros:
+- Informar na request o status a ser atualizado
+- 
+**GET/api/patient**
+Lista os pacientes cadastrados no sistema. De forma opcional, pode-se utilizar um query param para listar a partir do status dos pacientes como no exemplo a seguir:
+"/api/patient?status=NÃO_ATENDIDO"
+
+Parâmetros:
+- Sem request body.
+- 
+**GET/api/patient/:id**
+Retorna um paciente de acordo com o ID.
+
+Parâmetros:
+- Sem request body. Apenas o ID passado no path.
+
+**DELETE/api/patient/:id**
+Deleta um paciente do banco de dados.
+
+Parâmetros:
+- Sem request body. Apenas o ID passado no path.
+
+**MÉDICO**
+**POST/api/doctor**
+Cria o cadastro de um novo médico.
+
+Parâmetros:
+- Identificador: Um número que deve ser incrementado automaticamente
+- Nome Completo: Deve ser um texto
+- Gênero: Deve ser um texto
+- Data de Nascimento: Obrigatório, data válida.
+- CPF: Deve ser texto
+- Telefone: Deve ser texto
+- Instituição de Ensino da Formação: Obrigatório, deve ser texto.
+- Cadastro do CRM/UF:  Obrigatório, deve ser texto.
+- Especialização Clínica: Obrigatório com as seguintes opções: Clínico Geral, Anestesista, Dermatologia, Ginecologia, Neurologia, Pediatria, Psiquiatria, Ortopedia.
+- Estado no Sistema: Ativo ( Por padrão, caso não informado, cadastra o médico como ativo), Inativo
+- Total de atendimentos realizados
+
+**PUT/api/doctor/:id**
+Realiza atualizações nos atributos de médicos.
+
+Parâmetros: 
+- No corpo da request, informar objeto json com os campos.
+- Os campos validados como sendo obrigatórios devem possuir os valores possíveis para estes campos.
+
+**PUT/api/doctor/:id/status**
+Atualiza o status do médico no banco de dados.
+
+Parâmetros:
+- Informar na request o status a ser atualizado
+- 
+**GET/api/doctor**
+Lista os médicos cadastrados no sistema. De forma opcional, pode-se utilizar um query param para listar a partir do status dos médicos como no exemplo a seguir:
+"/api/doctor?status=INATIVO"
+
+Parâmetros:
+- Sem request body.
+- 
+**GET/api/doctor/:id**
+Retorna um médico de acordo com o ID.
+
+Parâmetros:
+- Sem request body. Apenas o ID passado no path.
+
+**DELETE/api/doctor/:id**
+Deleta um paciente do banco de dados.
+
+Parâmetros:
+- Sem request body. Apenas o ID passado no path.
+
+**ENFERMEIRO**
+**POST/api/nurse**
+Cria o cadastro de um novo enfermeiro.
+
+Parâmetros:
+- Identificador: Um número que deve ser incrementado automaticamente
+- Nome Completo: Deve ser um texto
+- Gênero: Deve ser um texto
+- Data de Nascimento: Obrigatório, data válida.
+- CPF: Deve ser texto
+- Telefone: Deve ser texto
+- Instituição de Ensino da Formação: Obrigatório, deve ser texto.
+- Cadastro do COFEN/UF:  Obrigatório, deve ser texto.
+
+**PUT/api/nurse/:id**
+Realiza atualizações nos atributos de enfermeiros.
+
+Parâmetros: 
+- No corpo da request, informar objeto json com os campos.
+- Os campos validados como sendo obrigatórios devem possuir os valores possíveis para estes campos.
+ 
+**GET/api/nurse**
+Lista os enfermeiros cadastrados no sistema. 
+
+Parâmetros:
+- Sem request body.
+- 
+**GET/api/nurse/:id**
+Retorna um enfermeiro de acordo com o ID.
+
+Parâmetros:
+- Sem request body. Apenas o ID passado no path.
+
+**DELETE/api/nurse/:id**
+Deleta um enfermeiro do banco de dados.
+
+Parâmetros:
+- Sem request body. Apenas o ID passado no path.
+
+**ATENDIMENTOS**
+**POST/api/service**
+Incrementa o valor do atributo atendiemento no paciente e no médicos passados na requisição e altera o status do paciente para ATENDIDO.
+
+Parâmetros:
+- ID do médico.
+- ID do paciente
+
 ## Melhorias ou futuras implementações
 
 Pelo fato de este projeto ser apenas um MVP, abaixo seguem algumas melhorias para futuras implementações:
